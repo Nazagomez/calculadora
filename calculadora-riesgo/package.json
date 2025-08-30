@@ -1,0 +1,19 @@
+{
+  "name": "calculadora-riesgo-backend",
+  "version": "1.0.0",
+  "description": "Backend para Calculadora de Riesgos con métodos RPN y WEIGHTED",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["risk", "calculator", "rpn", "weighted", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
