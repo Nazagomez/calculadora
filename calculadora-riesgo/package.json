@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "postinstall": "echo 'Dependencies installed successfully'"
   },
   "keywords": ["risk", "calculator", "rpn", "weighted", "express"],
   "author": "",
@@ -14,6 +15,7 @@
     "express": "^4.18.2"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }
