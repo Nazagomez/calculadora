@@ -8,7 +8,10 @@ const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000/api';
  */
 async function apiRequest(endpoint, options = {}) {
   try {
-    const response = await fetch(`${API_BASE}${endpoint}`, {
+    const fullUrl = `${API_BASE}${endpoint}`;
+    console.log('API Request:', { url: fullUrl, method: options.method || 'GET', API_BASE });
+    
+    const response = await fetch(fullUrl, {
       headers: {
         'Content-Type': 'application/json',
         ...options.headers,
@@ -16,13 +19,15 @@ async function apiRequest(endpoint, options = {}) {
       ...options,
     });
 
+    console.log('API Response:', { status: response.status, url: fullUrl });
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     return await response.json();
   } catch (error) {
-    console.error('API Request Error:', error);
+    console.error('API Request Error:', { error, url: `${API_BASE}${endpoint}`, API_BASE });
     throw error;
   }
 }
