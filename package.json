@@ -1,0 +1,14 @@
+{
+  "name": "calculadora-de-riesgos",
+  "version": "1.0.0",
+  "description": "Calculadora de Riesgos - Full Stack Application",
+  "scripts": {
+    "build": "cd react-calculadora && npm run build",
+    "dev:frontend": "cd react-calculadora && npm run dev",
+    "dev:backend": "cd calculadora-riesgo && npm run dev",
+    "install:all": "cd calculadora-riesgo && npm install && cd ../react-calculadora && npm install"
+  },
+  "keywords": ["risk", "calculator", "rpn", "weighted", "react", "express"],
+  "author": "",
+  "license": "MIT"
+}
