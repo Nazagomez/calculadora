@@ -1,13 +1,13 @@
-import { NodeSDK } from '@opentelemetry/sdk-node';
-import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-node';
-import { Resource } from '@opentelemetry/resources';
-import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
-import { MeterProvider } from '@opentelemetry/sdk-metrics';
-import { PeriodicExportingMetricReader, ConsoleMetricExporter } from '@opentelemetry/sdk-metrics';
-import { Logger } from '@opentelemetry/api-logs';
-import { Counter, Histogram } from '@opentelemetry/api';
+const { NodeSDK } = require('@opentelemetry/sdk-node');
+const { ConsoleSpanExporter, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-node');
+const { Resource } = require('@opentelemetry/resources');
+const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
+const { MeterProvider } = require('@opentelemetry/sdk-metrics');
+const { PeriodicExportingMetricReader, ConsoleMetricExporter } = require('@opentelemetry/sdk-metrics');
+const { Logger } = require('@opentelemetry/api-logs');
+const { Counter, Histogram } = require('@opentelemetry/api');
 
-export class TelemetryService {
+class TelemetryService {
     private static sdk: NodeSDK;
     private static meterProvider: MeterProvider;
     private static logger: Logger;
@@ -60,5 +60,7 @@ export class TelemetryService {
 
     static registrarTiempoRespuesta(ms: number) {
         this.tiempoRespuestaHistogram.record(ms);
+    }
 }
-}
+
+module.exports = { TelemetryService };

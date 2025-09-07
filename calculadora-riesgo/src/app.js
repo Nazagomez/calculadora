@@ -1,6 +1,11 @@
 const express = require('express');
 const routes = require('./routes');
 const { errorHandler, notFoundHandler } = require('./middlewares/error');
+const { monitoringMiddleware, riskCalculationMiddleware } = require('./middlewares/monitoring');
+const { TelemetryService } = require('./telemetry/telemetryConfig');
+
+// Inicializar telemetría
+TelemetryService.init();
 
 const app = express();
 
@@ -38,6 +43,9 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${new Date().toISOString()}`);
   next();
 });
+
+// Middleware de monitoreo
+app.use(monitoringMiddleware);
 
 // API routes
 app.use('/api', routes);

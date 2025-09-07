@@ -1,4 +1,5 @@
 const riskService = require('../services/risk.service');
+const { TelemetryService } = require('../telemetry/telemetryConfig');
 
 /**
  * Health check endpoint
@@ -140,9 +141,22 @@ function calculateBatch(req, res) {
   res.json({ results });
 }
 
+/**
+ * Get monitoring statistics
+ */
+function getStats(req, res) {
+  const stats = TelemetryService.getStats();
+  res.json({
+    status: 'ok',
+    time: new Date().toISOString(),
+    monitoring: stats
+  });
+}
+
 module.exports = {
   getHealth,
   getModels,
   calculateRisk,
-  calculateBatch
+  calculateBatch,
+  getStats
 }; 
