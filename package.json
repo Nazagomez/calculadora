@@ -1,14 +1,37 @@
 {
-  "name": "calculadora-de-riesgos",
+  "name": "calculadora-riesgos",
   "version": "1.0.0",
   "description": "Calculadora de Riesgos - Full Stack Application",
   "scripts": {
     "build": "cd react-calculadora && npm run build",
     "dev:frontend": "cd react-calculadora && npm run dev",
     "dev:backend": "cd calculadora-riesgo && npm run dev",
-    "install:all": "cd calculadora-riesgo && npm install && cd ../react-calculadora && npm install"
+    "install:all": "cd calculadora-riesgo && npm install && cd ../react-calculadora && npm install",
+    "test:telemetry": "node src/telemetry/telemetry.test.js"
   },
-  "keywords": ["risk", "calculator", "rpn", "weighted", "react", "express"],
+  "keywords": [
+    "risk",
+    "calculator",
+    "rpn",
+    "weighted",
+    "react",
+    "express"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@opentelemetry/api": "^1.7.0",
+    "@opentelemetry/api-logs": "^0.45.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.45.1",
+    "@opentelemetry/instrumentation": "^0.45.1",
+    "@opentelemetry/resources": "^1.17.1",
+    "@opentelemetry/sdk-metrics": "^1.17.1",
+    "@opentelemetry/sdk-node": "^0.45.1",
+    "@opentelemetry/sdk-trace-node": "^1.17.1",
+    "@opentelemetry/semantic-conventions": "^1.17.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
 }
